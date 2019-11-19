@@ -1,4 +1,4 @@
-
+"use strict";
 
 function calculateQuadraticEquation(){
     let a = +window.a.value;
@@ -11,8 +11,18 @@ function calculateQuadraticEquation(){
 }
 
 function getResult(a,b,c){
-    // код для задачи №1 писать здесь
-    //return x;
+    let x;
+    let dis = Math.pow(b, 2) - 4 * a * c;
+    if (dis < 0) 
+      x = [];
+    
+    else if (dis == 0) 
+      x = [((-b + Math.sqrt(dis)) / (2 * a))];
+    
+    else if (dis > 0) 
+      x = [((-b + Math.sqrt(dis)) / (2 * a)), (-b - Math.sqrt(dis) / (2 * a))]
+    
+    return x;
 }
 
 function calculateAverageRating(){
@@ -22,8 +32,14 @@ function calculateAverageRating(){
 }
 
 function getAverageMark(marks){
-    // код для задачи №2 писать здесь
-    //return averageMark;
+    let sum = 0;
+    marks.splice(5, (marks.length-5));
+    console.log(marks);
+    for (let i = 0; i < marks.length; i++) {
+      sum += marks[i];
+    };
+    averageMark = sum / marks.length;
+    return averageMark;
 }
 
 function calculateDrinkTask(){
@@ -34,7 +50,41 @@ function calculateDrinkTask(){
 }
 
 function askDrink(name,dateOfBirthday){
-    // код для задачи №3 писать здесь
-    //console.log(result)
-    //return result;
+  let result;
+
+
+ 
+let today = new Date(); 
+let todayYear = today.getFullYear();
+let todayMonth = today.getMonth();
+let todayDate = today.getDate();
+
+   
+let dob =  new Date(dateOfBirthday);
+let dobYear = dob.getFullYear();
+let dobMonth = dob.getMonth();
+let dobDate = dob.getDate();
+let yearsDiff = todayYear - dobYear;
+let age;
+
+if (todayMonth < dobMonth) 
+  age = yearsDiff - 1; 
+ 
+else if (todayMonth > dobMonth) 
+  age = yearsDiff ; 
+ 
+
+else if ( todayDate < dobDate ) 
+    age = yearsDiff - 1;
+else 
+    age = yearsDiff;
+
+
+if (age >= 18)
+  result = `Не желаете ли олд-фэшн, ${name}?`;
+
+else 
+  result = `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
+  console.log(result)
+  return result;
 }

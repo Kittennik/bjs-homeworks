@@ -4,7 +4,7 @@ function getSolutions(a, b, c) {
 
     let dis = Math.pow(b, 2) - 4 * a * c;
     let x1 = ((-b + Math.sqrt(dis)) / (2 * a));
-    let x2 = (-b - Math.sqrt(dis) / (2 * a));
+    let x2 = ((-b - Math.sqrt(dis)) / (2 * a));
     
     if (dis < 0) 
     return {D: dis};
@@ -56,19 +56,28 @@ let data = {
     french: [4,4,5],
 };
 
+function getAverageMark(marks) {
+  let sum = 0;
+  for (let i = 0; i < marks.length; i++) {
+      sum += marks[i];
+      };
+  let average = sum / marks.length;
+  console.log(average);
+  return average;
+};
+
 function getAverageScore(data) {
   let marksAverage = 0;
   let dataLength = 0;
   for (let averageMark in data) {
-    let sum = 0;
+    
     let marks = data[averageMark];
-      for (let i = 0; i < marks.length; i++) {
-      sum += marks[i];
-      };
-    data[averageMark] = sum / marks.length;
+    data[averageMark] = getAverageMark(marks); 
+    
     marksAverage = marksAverage + data[averageMark];
     dataLength++;
-  };
+  }
+
   data.average = marksAverage / dataLength;
   return data;
 };

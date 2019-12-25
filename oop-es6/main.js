@@ -214,7 +214,7 @@ console.log(`Оружие ${stormStaff.name} имеет атаку ${stormStaff.
       }
     }
   
-    getToralAverage(){
+    getTolalAverage(){
       let average  = 0;
       if (this.marks.length === 0) {
         return 0;
@@ -252,4 +252,4 @@ console.log(`Оружие ${stormStaff.name} имеет атаку ${stormStaff.
   console.log(`Средний балл по математике ${student.getAverageBySubject('math')}`); 
   console.log(`Средний балл по музыке ${student.getAverageBySubject('music')}`);
   console.log(`Средний балл по английскому языку ${student.getAverageBySubject('english')}`);
-  console.log(`Средний балл по всем предметам ${student.getToralAverage()}`);
+  console.log(`Средний балл по всем предметам ${student.getTotalAverage()}`);

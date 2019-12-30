@@ -38,6 +38,16 @@ class Weapon {
     }
   }
   
+const arm = new Weapon('Рука', 1, Infinity, 1);
+const bow = new Weapon('Лук', 10, 200, 3);
+const sword = new Weapon('Меч', 25, 500, 1);
+const knife = new Weapon('Нож', 5, 300, 1);
+const staff = new Weapon('Посох', 8, 300, 2);
+const longBow = new Weapon('Длинный лук', 15, 200, 4);
+const battleAxe = new Weapon('Секира', 27, 800, 1);
+const stormStaff = new Weapon('Посох бури', 10, 300, 3);
+
+
   class Arm extends Weapon {
     constructor(name, attack, durability, range) {
       super (name, attack, durability, range);
@@ -214,7 +224,7 @@ console.log(`Оружие ${stormStaff.name} имеет атаку ${stormStaff.
       }
     }
   
-    getTolalAverage(){
+    getTotalAverage(){
       let average  = 0;
       if (this.marks.length === 0) {
         return 0;
